@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { NredditComponent } from './nreddit/nreddit.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NredditComponent
   ],
   imports: [
     BrowserModule
