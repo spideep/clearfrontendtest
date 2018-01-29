@@ -1,4 +1,5 @@
 export class Post {
-	title: string;
-	url: string;
+  title: string;
+  url: string;
+  name: string;
 }

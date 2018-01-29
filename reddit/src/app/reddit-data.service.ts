@@ -7,18 +7,20 @@ import {Post} from './post';
 
 @Injectable()
 export class RedditDataService {
+  lastpostname = null;
+
   constructor(private jsonp: Jsonp) {
   }
 
-  fetchPosts(subreddit: string, count: string, lastpost: string): Observable<Post[]> {
-
+  fetchPosts(subreddit: string, count: string, lastpostname: string, currentPage: number): Observable<Post[]> {
+    currentPage = currentPage || 1;
     let params = new URLSearchParams();
     params.set('format', 'json');
     if (count) {
       params.set('count', count);
     }
-    if (lastpost) {
-      params.set('after', lastpost);
+    if (this.lastpostname) {
+      params.set('after', this.lastpostname);
     }
 
     params.set('jsonp', 'JSONP_CALLBACK');
@@ -32,9 +34,14 @@ export class RedditDataService {
         let post: Post = new Post();
         post.title = children[i].data.title;
         post.url = children[i].data.url;
+        post.name = this.lastpostname = children[i].data.name;
         posts.push(post);
       }
       return posts;
     });
+  }
+
+  getLastPost() {
+    return this.lastpostname;
   }
 }

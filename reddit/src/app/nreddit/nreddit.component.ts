@@ -14,20 +14,23 @@ export class NredditComponent implements OnInit {
   @Input('subreddit') subreddit: string;
 
   posts: Post[];
+  lastpostname:string;
 
   constructor(private data: RedditDataService) {
   }
 
   ngOnInit() {
-    this.data.fetchPosts(this.subreddit, null, null).subscribe(
+    this.data.fetchPosts(this.subreddit, null, null,1).subscribe(
       posts => this.posts = posts
     );
   }
 
-  pageChanged(event) {
+
+  changeThisPage(event) {
     this.page = event.page;
-    this.data.fetchPosts(this.subreddit, (this.page + 25).toString(), null).subscribe(
+    this.data.fetchPosts(this.subreddit, (this.page + 25).toString(), null, this.page).subscribe(
       posts => this.posts = posts
     );
+    this.lastpostname = this.data.getLastPost();
   }
 }

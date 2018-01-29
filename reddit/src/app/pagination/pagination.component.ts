@@ -7,14 +7,13 @@ import {Page} from '../pagination';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements OnInit {
-  current: number = 1;
+  current = 1;
 
   @Output() changePage = new EventEmitter();
 
   constructor() {
   }
 
-  pages: any[] = [];
   pageModel: Page = {
     page: this.current
   };
@@ -22,8 +21,8 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {
   }
 
-  setPage(page: number) {
-    this.pageModel.page = page;
+  setPage(page: string) {
+    this.pageModel.page = +page;
     this.changePage.emit(this.pageModel);
   }
 
