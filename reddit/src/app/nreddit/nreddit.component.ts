@@ -10,6 +10,7 @@ import {Post} from '../post';
   providers: [RedditDataService]
 })
 export class NredditComponent implements OnInit {
+  page: number = 1;
   @Input('subreddit') subreddit: string;
 
   posts: Post[];
@@ -18,7 +19,14 @@ export class NredditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.fetchPosts(this.subreddit).subscribe(
+    this.data.fetchPosts(this.subreddit, null, null).subscribe(
+      posts => this.posts = posts
+    );
+  }
+
+  pageChanged(event) {
+    this.page = event.page;
+    this.data.fetchPosts(this.subreddit, (this.page + 25).toString(), null).subscribe(
       posts => this.posts = posts
     );
   }

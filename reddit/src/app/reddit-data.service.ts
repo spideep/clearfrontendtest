@@ -10,12 +10,17 @@ export class RedditDataService {
   constructor(private jsonp: Jsonp) {
   }
 
-  fetchPosts(subreddit: string): Observable<Post[]> {
+  fetchPosts(subreddit: string, count: string, lastpost: string): Observable<Post[]> {
 
     let params = new URLSearchParams();
     params.set('format', 'json');
-    params.set('count', '25');
-    params.set('after', 't3_7tp30u');
+    if (count) {
+      params.set('count', count);
+    }
+    if (lastpost) {
+      params.set('after', lastpost);
+    }
+
     params.set('jsonp', 'JSONP_CALLBACK');
 
     const rdurl = 'https://www.reddit.com' + subreddit + '/';

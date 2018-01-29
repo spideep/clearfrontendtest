@@ -7,9 +7,7 @@ import {Page} from '../pagination';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements OnInit {
-  @Input() current: number;
-  @Input() postsPerPage: number[];
-  @Input() itemsPerPage: number;
+  current: number = 1;
 
   @Output() changePage = new EventEmitter();
 
@@ -18,16 +16,14 @@ export class PaginationComponent implements OnInit {
 
   pages: any[] = [];
   pageModel: Page = {
-    page: this.current,
-    itemsPerPage: this.itemsPerPage
+    page: this.current
   };
 
   ngOnInit() {
   }
 
-  setPage(page: number, perPage: number) {
+  setPage(page: number) {
     this.pageModel.page = page;
-    this.pageModel.itemsPerPage = perPage;
     this.changePage.emit(this.pageModel);
   }
 
