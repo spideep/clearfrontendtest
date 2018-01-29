@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
-import { RedditDataService } from '../reddit-data.service';
-import { Post } from '../post';
+import {Component, OnInit, Output, Input} from '@angular/core';
+import {RedditDataService} from '../reddit-data.service';
+import {Post} from '../post';
 
 
 @Component({
@@ -10,15 +10,16 @@ import { Post } from '../post';
   providers: [RedditDataService]
 })
 export class NredditComponent implements OnInit {
-	@Input('subreddit') subreddit:string;
+  @Input('subreddit') subreddit: string;
 
-	posts:Post[];
+  posts: Post[];
 
-  constructor( private data: RedditDataService ) { }
+  constructor(private data: RedditDataService) {
+  }
 
   ngOnInit() {
-  	this.data.fetchPosts(this.subreddit).subscribe(
-  		posts => this.posts = posts
-  		);
+    this.data.fetchPosts(this.subreddit).subscribe(
+      posts => this.posts = posts
+    );
   }
 }

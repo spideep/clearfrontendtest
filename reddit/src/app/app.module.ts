@@ -5,12 +5,14 @@ import { JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NredditComponent } from './nreddit/nreddit.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NredditComponent
+    NredditComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
