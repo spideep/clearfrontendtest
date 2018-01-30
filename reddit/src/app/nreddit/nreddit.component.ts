@@ -25,6 +25,10 @@ export class NredditComponent implements OnInit {
     );
   }
 
+  dismiss(event) {
+    event.target.parentElement.remove();
+  }
+
   changeThisPage(event) {
     this.page = event.page;
     this.data.fetchPosts(this.subreddit, (this.page + 25).toString(), null, this.page).subscribe(

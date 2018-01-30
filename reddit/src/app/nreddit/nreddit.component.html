@@ -6,7 +6,7 @@
     </a>
     <img src="{{ post.thumbnail }}" alt="">
     <br>Created: {{ post.created | AgoDateCustomPipe }} hours ago
-    <br><a href="javascript:;">dismiss this post</a>
+    <br><a href="javascript:;" (click)="dismiss($event)" >dismiss this post</a>
   </li>
   <li><a href="javascript:;">dismiss all</a></li>
 </ul>
