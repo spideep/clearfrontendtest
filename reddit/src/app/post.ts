@@ -3,4 +3,5 @@ export class Post {
   url: string;
   name: string;
   created: string;
+  thumbnail: string;
 }
