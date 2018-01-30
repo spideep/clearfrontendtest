@@ -26,7 +26,7 @@ export class NredditComponent implements OnInit {
   }
 
   dismiss(event) {
-    event.target.parentElement.remove();
+    event.target.parentElement.classList.add('hidden');
   }
 
   changeThisPage(event) {
