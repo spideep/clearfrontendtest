@@ -1,13 +1,13 @@
 <div class="row">
   <ul>
-    <li>Página actual: {{ current }}</li>
+    <li>Página actual: {{ pageModel.page }}</li>
     <li>
-      <a href="javascript:;" (click)="setPage(current - 1)">
+      <a href="javascript:;" (click)="setPage(pageModel.page - 1)">
         Anterior
       </a>
     </li>
     <li>
-      <a href="javascript:;" (click)="setPage(current + 1)">
+      <a href="javascript:;" (click)="setPage(pageModel.page + 1)">
         Siguiente
       </a>
     </li>

@@ -15,8 +15,7 @@ export class AgoDateCustomPipe implements PipeTransform {
     let seconds = givendate.getSeconds();
     let miliseconds = givendate.getMilliseconds();
     gd = new Date(year, month, day, hours, minutes, seconds, miliseconds);
-    let difference = (rightnow.getTime() - gd.getTime()) / 1000;
-    difference /= 60;
-    return Math.abs(Math.round(difference / (60) + 7.5));
+    let difference = (rightnow.getTime() - gd.getTime()) / (1000 * 60);
+    return Math.abs(Math.round(difference / 60 + 7.5));
   }
 }
