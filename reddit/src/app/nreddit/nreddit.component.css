@@ -10,3 +10,6 @@ li {
   margin: 0;
   margin-bottom: 5px;
 }
+.selected {
+  background-color: cadetblue;
+}

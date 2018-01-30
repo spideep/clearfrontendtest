@@ -3,7 +3,6 @@ import {RedditDataService} from '../reddit-data.service';
 import {Post} from '../post';
 
 
-
 @Component({
   selector: 'app-nreddit',
   templateUrl: './nreddit.component.html',
@@ -15,17 +14,16 @@ export class NredditComponent implements OnInit {
   @Input('subreddit') subreddit: string;
 
   posts: Post[];
-  lastpostname:string;
+  lastpostname: string;
 
   constructor(private data: RedditDataService) {
   }
 
   ngOnInit() {
-    this.data.fetchPosts(this.subreddit, null, null,1).subscribe(
+    this.data.fetchPosts(this.subreddit, null, null, 1).subscribe(
       posts => this.posts = posts
     );
   }
-
 
   changeThisPage(event) {
     this.page = event.page;
