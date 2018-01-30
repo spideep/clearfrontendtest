@@ -35,6 +35,8 @@ export class RedditDataService {
         post.title = children[i].data.title;
         post.url = children[i].data.url;
         post.name = this.lastpostname = children[i].data.name;
+        post.created = children[i].data.created;
+        // post.created = children[i].data.created_utc;
         posts.push(post);
       }
       return posts;

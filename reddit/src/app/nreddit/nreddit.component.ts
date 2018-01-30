@@ -3,6 +3,7 @@ import {RedditDataService} from '../reddit-data.service';
 import {Post} from '../post';
 
 
+
 @Component({
   selector: 'app-nreddit',
   templateUrl: './nreddit.component.html',
